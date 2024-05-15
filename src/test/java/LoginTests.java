@@ -1,25 +1,35 @@
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.time.Duration;
-
 public class LoginTests extends BaseTest {
     @Test
-    public void loginEmptyEmailPassword() {
+    public void loginValidEmailValidPassword() {
+        //NavigateToLoginPage();
+        provideEmail("pearl.estrada@testpro.io");
+        providePassword("April969!!");
+        clickLoginBtn();
+        WebElement avatarIcon = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("img[class='avatar']")));
+        Assert.assertTrue(avatarIcon.isDisplayed());
+    }
 
-//      Added ChromeOptions argument below to fix websocket error
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--remote-allow-origins=*");
-
-        WebDriver driver = new ChromeDriver(options);
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-
-        String url = "https://qa.koel.app/";
-        driver.get(url);
+    @Test
+    public void LoginInvalidEmailValidPassword () {
+        //NavigateToLoginPage();
+        provideEmail("invalidemail@test.com");
+        providePassword("April969!!");
+        clickLoginBtn();
         Assert.assertEquals(driver.getCurrentUrl(), url);
-        driver.quit();
+    }
+
+    @Test
+    public void loginValidEmailEmptyPassword() {
+        //NavigateToLoginPage();
+        provideEmail("pearl.estrada@testpro.io");
+        providePassword("");
+        clickLoginBtn();
+        Assert.assertEquals(driver.getCurrentUrl(), url);
     }
 }
