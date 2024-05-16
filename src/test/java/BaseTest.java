@@ -15,7 +15,6 @@ import org.testng.annotations.Parameters;
 import java.time.Duration;
 
 public class BaseTest {
-
     public WebDriver driver;
     public WebDriverWait wait;
     public Actions actions;
