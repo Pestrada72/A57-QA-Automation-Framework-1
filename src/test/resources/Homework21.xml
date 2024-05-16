@@ -5,9 +5,9 @@
  <parameter name="BaseURL" value="https://qa.koel.app"/>
     <test name="Homework21" preserve-order="false">
         <classes>
-            <class name="LoginTests"/>
-            <class name="BaseTest"/>
-            <class name="Homework21"/>
+            <class name="Homework21">
+                <include name = 'playSong'/>
+            </class>
         </classes>
     </test>
 </suite>
