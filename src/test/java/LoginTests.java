@@ -3,11 +3,13 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import pageObjects.HomePage;
+import pageObjects.LoginPage;
 
 public class LoginTests extends BaseTest {
+
     @Test
-    public void loginValidEmailValidPassword() {
-        //NavigateToLoginPage();
+    public void loginValidEmailPassword() {
         provideEmail("pearl.estrada@testpro.io");
         providePassword("April969!!");
         clickLoginBtn();
@@ -16,9 +18,9 @@ public class LoginTests extends BaseTest {
     }
 
     @Test
-    public void LoginInvalidEmailValidPassword () {
-        //NavigateToLoginPage();
-        provideEmail("invalidemail@test.com");
+    public void loginInvalidEmailValidPassword() {
+        navigateToPage();
+        provideEmail("email@test.com");
         providePassword("April969!!");
         clickLoginBtn();
         Assert.assertEquals(driver.getCurrentUrl(), url);
@@ -26,10 +28,22 @@ public class LoginTests extends BaseTest {
 
     @Test
     public void loginValidEmailEmptyPassword() {
-        //NavigateToLoginPage();
+        navigateToPage();
         provideEmail("pearl.estrada@testpro.io");
-        providePassword("");
+        providePassword(" ");
         clickLoginBtn();
         Assert.assertEquals(driver.getCurrentUrl(), url);
     }
+
+    @Test
+    public void loginValidEmailValidPasswordTest() {
+        LoginPage loginPage = new LoginPage(driver);
+        HomePage homePage = new HomePage(driver);
+
+        loginPage.provideEmail("pearl.estrada@testpro.io");
+        loginPage.providePassword("April969!!");
+        loginPage.clickSubmit();
+        Assert.assertTrue(homePage.getUserAvatar().isDisplayed());
+    }
+
 }

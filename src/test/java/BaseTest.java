@@ -22,22 +22,23 @@ public class BaseTest {
 
     @BeforeSuite
     static void setupClass() {
-       WebDriverManager.chromedriver().setup();
+        WebDriverManager.chromedriver().setup();
     }
 
     @BeforeMethod
     @Parameters({"BaseURL"})
-
     public void launchBrowser(String baseURL){
-            ChromeOptions options = new ChromeOptions();
-            options.addArguments("--remote-allow-origins=*");
-            driver = new ChromeDriver(options);
-            driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-            driver.manage().window().maximize();
-
-            wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-            actions = new Actions(driver);
-            navigateToPage();
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--remote-allow-origins=*");
+        driver = new ChromeDriver(options);
+        //Implicit Wait
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().window().maximize();
+        //Explicit Wait
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        driver.manage().window().maximize();
+        actions = new Actions(driver);
+        navigateToPage();
     }
 
     @AfterMethod
@@ -50,9 +51,9 @@ public class BaseTest {
     }
 
     public void provideEmail(String email) {
-         WebElement emailField = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input[type='email']")));
-         emailField.clear();
-         emailField.sendKeys(email);
+        WebElement emailField = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input[type='email']")));
+        emailField.clear();
+        emailField.sendKeys(email);
     }
 
     public void providePassword(String password) {
@@ -60,9 +61,9 @@ public class BaseTest {
         passwordField.clear();
         passwordField.sendKeys(password);
     }
-
     public void clickLoginBtn() {
         WebElement submit = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("button[type='submit']")));
         submit.click();
     }
 }
+
