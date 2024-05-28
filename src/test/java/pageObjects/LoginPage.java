@@ -11,22 +11,22 @@ public class LoginPage extends BasePage {
     }
 
     //Locators
-    By emailField = By.cssSelector("input[type='email']");
-    By passwordField = By.cssSelector("input[type='password']");
-    By loginBtn = By.cssSelector("button[type='submit']");
+    private By emailField = By.cssSelector("input[type='email']");
+    private By passwordField = By.cssSelector("input[type='password']");
+    private By loginBtn = By.cssSelector("button[type='submit']");
 
     //______________//
     // PAGE Factory //
     //______________//
 
     @FindBy(css = "input[type='email']")
-    WebElement emailFieldLocator;
+    private WebElement emailFieldLocator;
 
     @FindBy(css = "input[type='password']")
-    WebElement passwordFieldLocator;
+    private WebElement passwordFieldLocator;
 
     @FindBy(css = "button[type='submit']")
-    WebElement loginBtnLocator;
+    private WebElement loginBtnLocator;
 
 
     //Helper Methods

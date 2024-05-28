@@ -2,6 +2,8 @@ package pageObjects;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class AllSongsPage extends BasePage {
 
@@ -10,10 +12,10 @@ public class AllSongsPage extends BasePage {
     }
 
     //Locators
-    By chooseAllSongsList = By.cssSelector("li a.songs");
-    By contextClickFirstSong = By.cssSelector(".all-songs tr.song-item:nth-child(1)");
-    By choosePlayOption = By.cssSelector("li.playback");
-    By soundBarVisualizer = By.cssSelector("[data-testid='sound-bar-play']");
+    private By chooseAllSongsList = By.cssSelector("li a.songs");
+    private By contextClickFirstSong = By.cssSelector(".all-songs tr.song-item:nth-child(1)");
+    private By choosePlayOption = By.cssSelector("li.playback");
+    private By soundBarVisualizer = By.cssSelector("[data-testid='sound-bar-play']");
     //Methods using locators
 
     public void chooseAllSongsList() {
@@ -21,7 +23,8 @@ public class AllSongsPage extends BasePage {
     }
 
     public void contextClickFirstSong() {
-        findElement(contextClickFirstSong).click();
+        WebElement song = wait.until(ExpectedConditions.elementToBeClickable(contextClickFirstSong));
+        actions.contextClick(song).perform();
     }
 
     public void choosePlayOption() {
