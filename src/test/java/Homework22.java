@@ -8,9 +8,6 @@ public class Homework22 extends BaseTest {
 
     @Test
     public void playSong() {
-        provideEmail("pearl.estrada@testpro.io");
-        providePassword("April969!!");
-        clickLoginBtn();
         chooseAllSongsList();
         contextClickFirstSong();
         choosePlayOption();

@@ -10,10 +10,10 @@ public class HomePage extends BasePage {
     }
 
     //Locators
-    By userAvatarIcon = By.cssSelector("img.avatar");
+    protected By userAvatarIcon = By.cssSelector("img.avatar");
 
     //Helper Methods
-   public WebElement getUserAvatar() {
+    private WebElement getUserAvatar() {
         return findElement(userAvatarIcon);
     }
 }
