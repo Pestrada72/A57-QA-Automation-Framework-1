@@ -20,7 +20,7 @@ public class LoginTests extends BaseTest {
 
     @Test
     public void loginInvalidEmailValidPassword() {
-        navigateToPage();
+        navigateToPage(url);
         provideEmail("email@test.com");
         providePassword("April969!!");
         clickLoginBtn();
@@ -29,7 +29,7 @@ public class LoginTests extends BaseTest {
 
     @Test
     public void loginValidEmailEmptyPassword() {
-        navigateToPage();
+        navigateToPage(url);
         provideEmail("pearl.estrada@testpro.io");
         providePassword(" ");
         clickLoginBtn();
@@ -41,7 +41,7 @@ public class LoginTests extends BaseTest {
         provideEmail(email);
         providePassword(password);
         clickLoginBtn();
-        String expectedUrl = "//https://qa.koel.app/";
+        String expectedUrl = "https://qa.koel.app/";
         Assert.assertEquals(driver.getCurrentUrl(), expectedUrl);
         System.out.println("Just Testing Console");
     }
