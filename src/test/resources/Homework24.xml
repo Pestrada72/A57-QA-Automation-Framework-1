@@ -3,12 +3,16 @@
 
 <suite name="Homework24">
     <parameter name="BaseURL" value="https://qa.koel.app"/>
+    <parameter name="browser" value="chrome"/>
     <test name="Homework24" preserve-order="false">
         <classes>
             <class name="Homework24"/>
             <class name="LoginTests"/>
-            <class name="BaseTest"/>
-                <include name="playSong"/>
+            <class name="BaseTest">
+              <methods>
+                  <include name="playSong"/>
+              </methods>
+            </class>
         </classes>
     </test>
 </suite>

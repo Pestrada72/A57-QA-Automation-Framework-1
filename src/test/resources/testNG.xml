@@ -7,8 +7,12 @@
     <parameter name="browser" value="chrome"/>
         <classes>
             <class name="Homework24"/>
-            <class name="BaseTest"/>
-                <include name="playSong"/>
+            <class name="LoginTests"/>
+            <class name="BaseTest">
+                <methods>
+                    <include name="playSong"/>
+                </methods>
+            </class>
         </classes>
     </test>
 </suite>
