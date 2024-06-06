@@ -28,7 +28,6 @@ public class LoginPage extends BasePage {
     @FindBy(css = "button[type='submit']")
     protected WebElement loginBtnLocator;
 
-
     //Helper Methods
     public void provideEmail(String email) {
         findElement(emailField).clear();

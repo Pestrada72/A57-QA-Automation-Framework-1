@@ -92,7 +92,6 @@ public class BaseTest {
                 chromeOptions.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
                 //return new RemoteWebDriver(URI.create(gridURL).toURL(), chromeOptions);
                 return driver = new ChromeDriver(chromeOptions);
-
         }
     }
 
