@@ -3,6 +3,8 @@ import org.testng.annotations.Test;
 import pageObjects.HomePage;
 import pageObjects.LoginPage;
 
+import static java.sql.DriverManager.getDriver;
+
 public class LoginTests extends BaseTest {
 
     @Test

@@ -8,8 +8,8 @@ public class Homework24 extends BaseTest {
     @Test
     public void playSong() {
 
-        LoginPage loginPage = new LoginPage(driver);
-        AllSongsPage allSongsPage = new AllSongsPage(driver);
+        LoginPage loginPage = new LoginPage(getThreadLocal());
+        AllSongsPage allSongsPage = new AllSongsPage(getThreadLocal());
 
         loginPage.provideEmail("pearl.estrada@testpro.io");
         loginPage.providePassword("April969!!");
