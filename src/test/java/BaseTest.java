@@ -45,11 +45,9 @@ public class BaseTest {
         String hubURL = "https://hub.lambdatest.com/wd/hub";
         String userName = "pearl.estrada";
         String accessKey = "HMOuwBKL4COqEAwQcSpbzrqhsQEt0JIO0B3ArTOXzFDHd3EjkB";
-
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("browserName", "chrome");
         capabilities.setCapability("browserVersion", "125");
-
         HashMap<String, Object> ltOptions = new HashMap<>();
         ltOptions.put("username", userName);
         ltOptions.put("accessKey", accessKey);
