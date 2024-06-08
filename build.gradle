@@ -20,8 +20,8 @@ dependencies {
 }
 
 test {
-    useTestNG() {
-        suites "src/test/resources/${suite}.xml"
+    useTestNG()
+            suites "src/test/resources/TestNG.xml"
         systemProperty "browser",System.getProperty("browser")
     }
 }
