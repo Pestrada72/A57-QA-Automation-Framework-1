@@ -19,8 +19,21 @@ dependencies {
     testImplementation 'io.github.bonigarcia:webdrivermanager:5.7.0'
 }
 
-test {
-    useTestNG()
-        suites "src/test/resources/TestNG.xml"
-        systemProperty "browser",System.getProperty("browser")
+ test {
+     useTestNG {
+         suites "src/test/resources/${suite}.xml"
+         systemProperty "browser", System.getProperty("browser")
+     }
+ }
+
+tasks (testSmoke) (type: Test) {
+    useTestNG() {
+        suites "src/test/resources/Smoke.xml"
     }
+}
+
+tasks (testRegression) (type: Test) {
+    useTestNG() {
+        suites "src/test/resources/Regression.xml"
+    }
+}

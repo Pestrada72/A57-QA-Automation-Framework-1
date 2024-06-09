@@ -21,8 +21,8 @@ import java.util.HashMap;
 
 public class BaseTest {
     private static final ThreadLocal<WebDriver> THREAD_LOCAL = new ThreadLocal<>();
-    protected WebDriverWait wait;
-    protected Actions actions;
+    public WebDriverWait wait;
+    public Actions actions;
 
     public static WebDriver getThreadLocal() {
         return THREAD_LOCAL.get();

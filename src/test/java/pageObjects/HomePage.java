@@ -16,4 +16,6 @@ public class HomePage extends BasePage {
    public WebElement getUserAvatar() {
        return findElement(userAvatarIcon);
     }
+
+
 }
