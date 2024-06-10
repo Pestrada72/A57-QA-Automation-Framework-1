@@ -19,6 +19,10 @@ dependencies {
     testImplementation 'io.github.bonigarcia:webdrivermanager:5.7.0'
 }
 
+ext {
+    suite =project.findProperty('suite') ?: 'TestNG'
+}
+
  test {
      useTestNG {
          suites "src/test/resources/${suite}.xml"
@@ -26,13 +30,13 @@ dependencies {
      }
  }
 
-tasks (testSmoke) (type: Test) {
+tasks.register ('testSmoke', Test) {
     useTestNG() {
         suites "src/test/resources/Smoke.xml"
     }
 }
 
-tasks (testRegression) (type: Test) {
+tasks.register ('testRegression', Test) {
     useTestNG() {
         suites "src/test/resources/Regression.xml"
     }
