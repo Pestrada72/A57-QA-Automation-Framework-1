@@ -11,12 +11,18 @@ repositories {
 
 dependencies {
     testImplementation 'org.testng:testng:7.8.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
     implementation 'com.google.guava:guava:32.0.1-jre'
     implementation 'io.netty:netty-handler:4.1.94.Final'
     implementation 'io.netty:netty-codec:4.1.91.Final'
     implementation 'com.fasterxml.jackson.core:jackson-databind:2.14.2'
     implementation 'org.seleniumhq.selenium:selenium-java:4.10.0'
     testImplementation 'io.github.bonigarcia:webdrivermanager:5.7.0'
+    implementation 'io.cucumber:cucumber-testng:7.13.0'
+    implementation 'io.cucumber:cucumber-core:7.13.0'
+    implementation 'io.cucumber:cucumber-java:7.13.0'
+    implementation 'io.cucumber;gherkin:26.2.0'
+
 }
 
 ext {
