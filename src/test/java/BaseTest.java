@@ -60,6 +60,7 @@ public class BaseTest {
         return new RemoteWebDriver(new URL(hubURL), capabilities);
     }
 
+
     public static WebDriver pickBrowser(String browser) throws MalformedURLException {
         DesiredCapabilities caps = new DesiredCapabilities();
         String gridURL = "http://10.0.0.208:4444";
