@@ -10,13 +10,38 @@ repositories {
 }
 
 dependencies {
-    testImplementation 'org.testng:testng:7.6.1'
-    implementation 'org.seleniumhq.selenium:selenium-java:4.5.0'
+    testImplementation 'org.testng:testng:7.8.0'
+    implementation 'com.google.guava:guava:32.0.1-jre'
+    implementation 'io.netty:netty-handler:4.1.94.Final'
+    implementation 'io.netty:netty-codec:4.1.91.Final'
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.14.2'
+    implementation 'org.seleniumhq.selenium:selenium-java:4.10.0'
     testImplementation 'io.github.bonigarcia:webdrivermanager:5.7.0'
+    implementation 'io.cucumber:cucumber-testng:7.13.0'
+    implementation 'io.cucumber:cucumber-core:7.13.0'
+    implementation 'io.cucumber:cucumber-java:7.13.0'
+    implementation 'io.cucumber:gherkin:26.2.0'
+}
+
+ext {
+    suite =project.findProperty('suite') ?: 'TestNG'
 }
 
 test {
+    useTestNG {
+        suites "src/test/resources/${suite}.xml"
+        systemProperty "browser", System.getProperty("browser")
+    }
+}
+
+tasks.register ('testSmoke', Test) {
     useTestNG() {
-        suites "src/test/resources/Homework21.xml"
+        suites "src/test/resources/Smoke.xml"
+    }
+}
+
+tasks.register ('testRegression', Test) {
+    useTestNG() {
+        suites "src/test/resources/Regression.xml"
     }
 }
