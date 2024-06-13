@@ -21,8 +21,7 @@ dependencies {
     implementation 'io.cucumber:cucumber-testng:7.13.0'
     implementation 'io.cucumber:cucumber-core:7.13.0'
     implementation 'io.cucumber:cucumber-java:7.13.0'
-    implementation 'io.cucumber;gherkin:26.2.0'
-
+    implementation 'io.cucumber:gherkin:26.2.0'
 }
 
 ext {

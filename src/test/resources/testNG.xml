@@ -7,13 +7,9 @@
     <parameter name="BaseURL" value="https://qa.koel.app"/>
     <parameter name="browser" value="chrome"/>
         <classes>
-            <class name="Homework26"/>
-            <class name="LoginTests"/>
-            <class name="BaseTest">
-                <methods>
-                    <include name="playSong"/>
-                </methods>
-            </class>
+            <class name="CucumberRunner"/>
+      <!--  <class name="LoginTests"/>-->
+      <!--  <class name="BaseTest"/>-->
         </classes>
     </test>
 </suite>
