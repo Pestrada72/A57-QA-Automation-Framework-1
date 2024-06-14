@@ -39,9 +39,8 @@ tasks.register ('testSmoke', Test) {
         suites "src/test/resources/Smoke.xml"
     }
 }
-
-tasks.register ('testRegression', Test) {
-    useTestNG() {
-        suites "src/test/resources/Regression.xml"
+    tasks.register('testRegression', Test) {
+        useTestNG() {
+            suites "src/test/resources/Regression.xml"
+        }
     }
-}

@@ -8,8 +8,6 @@
         <parameter name="browser" value="chrome"/>
         <classes>
             <class name="CucumberRunner"/>
-            <!--  <class name="LoginTests"/>-->
-            <!--  <class name="BaseTest"/>-->
         </classes>
     </test>
 </suite>
