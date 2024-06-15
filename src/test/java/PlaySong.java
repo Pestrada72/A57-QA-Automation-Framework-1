@@ -3,7 +3,7 @@ import org.testng.annotations.Test;
 import pageObjects.AllSongsPage;
 import pageObjects.LoginPage;
 
-public class Homework27 extends BaseTest{
+public class PlaySong extends BaseTest {
 
     @Test
     public void playSong() {
@@ -15,6 +15,8 @@ public class Homework27 extends BaseTest{
         allSongsPage.chooseAllSongsList();
         allSongsPage.contextClickFirstSong();
         allSongsPage.choosePlayOption();
+        allSongsPage.isPlaying();
         Assert.assertTrue(allSongsPage.isPlaying());
     }
 }
+

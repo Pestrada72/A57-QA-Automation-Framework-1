@@ -3,10 +3,10 @@ import org.testng.annotations.Test;
 import pageObjects.HomePage;
 import pageObjects.LoginPage;
 
-public class LoginTests extends BaseTest {
+public class NegativeLoginTest extends BaseTest {
 
     @Test
-    public void loginValidEmailValidPasswordTest() {
+    public void loginValidEmailValidPassword() {
         LoginPage loginPage = new LoginPage(getThreadLocal());
         HomePage homePage = new HomePage(getThreadLocal());
         loginPage.provideEmail("pearl.estrada@testpro.io");
@@ -16,21 +16,21 @@ public class LoginTests extends BaseTest {
     }
 
     @Test
-    public void loginValidEmailPasswordUsingPOM() {
+    public void loginInvalidEmailValidPassword() {
         LoginPage loginPage = new LoginPage(getThreadLocal());
         HomePage homePage = new HomePage(getThreadLocal());
-        loginPage.provideEmail("pearl.estrada@testpro.io");
+        loginPage.provideEmail("invalidemail@test.com");
         loginPage.providePassword("April969!!");
         loginPage.clickSubmit();
         Assert.assertTrue(homePage.getUserAvatar().isDisplayed());
-    }
+        }
 
     @Test
-    public void loginValidEmailPasswordUsingPageFactory() {
+    public void loginValidEmailPasswordEmptyPassword() {
         LoginPage loginPage = new LoginPage(getThreadLocal());
         HomePage homePage = new HomePage(getThreadLocal());
         loginPage.provideEmail("pearl.estrada@testpro.io");
-        loginPage.providePassword("April969!!");
+        loginPage.providePassword("");
         loginPage.clickSubmit();
         Assert.assertTrue(homePage.getUserAvatar().isDisplayed());
     }

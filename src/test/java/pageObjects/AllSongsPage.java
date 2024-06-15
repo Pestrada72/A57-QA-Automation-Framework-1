@@ -9,7 +9,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 public class AllSongsPage extends BasePage {
 
     public AllSongsPage(WebDriver givenDriver) {
-        super(givenDriver);
+       super(givenDriver);
     }
 
     //Locators
@@ -36,5 +36,4 @@ public class AllSongsPage extends BasePage {
     public boolean isPlaying() {
         return findElement(soundBarVisualizer).isDisplayed();
     }
-
 }

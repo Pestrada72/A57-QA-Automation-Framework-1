@@ -11,7 +11,7 @@ public class LoginPage extends BasePage {
     //WebElements
     By emailField = By.cssSelector("input[type='email']");
     By passwordField = By.cssSelector("input[type='password']");
-    By loginBtn = By.cssSelector("button[type='submit']");
+    By clickSubmit = By.cssSelector("button[type='submit']");
 
     //Helper Methods
     public void provideEmail(String email) {
@@ -25,7 +25,7 @@ public class LoginPage extends BasePage {
     }
 
     public void clickSubmit() {
-        findElement(loginBtn).click();
+        findElement(clickSubmit).click();
     }
 
     public void login() {

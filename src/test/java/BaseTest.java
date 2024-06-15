@@ -1,7 +1,5 @@
 import io.github.bonigarcia.wdm.WebDriverManager;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
@@ -10,7 +8,6 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.annotations.*;
 import java.net.MalformedURLException;
@@ -24,9 +21,11 @@ public class BaseTest {
     private static final ThreadLocal<WebDriver> THREAD_LOCAL = new ThreadLocal<>();
     public WebDriverWait wait;
     public Actions actions;
+
     public static WebDriver getThreadLocal() {
         return THREAD_LOCAL.get();
     }
+
     @BeforeMethod
     @Parameters({"BaseURL"})
     public void setUpBrowser(String baseURL) throws MalformedURLException {
@@ -39,6 +38,7 @@ public class BaseTest {
         wait = new WebDriverWait(getThreadLocal(), Duration.ofSeconds(10));
         actions = new Actions(getThreadLocal());
     }
+
     public static WebDriver lambdaTest() throws MalformedURLException {
         String hubURL = "https://hub.lambdatest.com/wd/hub";
         String userName = "pearl.estrada";
@@ -56,6 +56,7 @@ public class BaseTest {
         capabilities.setCapability("LT:Options", ltOptions);
         return new RemoteWebDriver(new URL(hubURL), capabilities);
     }
+
     public static WebDriver pickBrowser(String browser) throws MalformedURLException {
         DesiredCapabilities caps = new DesiredCapabilities();
         String gridURL = "http://10.0.0.208:4444";
@@ -75,7 +76,7 @@ public class BaseTest {
             case "grid-firefox":
                 caps.setCapability("browserName", "firefox");
                 return new RemoteWebDriver(URI.create(gridURL).toURL(), caps);
-            case"grid-chrome":
+            case "grid-chrome":
                 caps.setCapability("browserName", "chrome");
                 return new RemoteWebDriver(URI.create(gridURL).toURL(), caps);
             case "cloud":
@@ -92,23 +93,10 @@ public class BaseTest {
                 return new ChromeDriver(chromeOptions);
         }
     }
+
     @AfterMethod
     public void tearDown() {
         THREAD_LOCAL.get().close();
         THREAD_LOCAL.remove();
-    }
-    public void provideEmail(String email) {
-        WebElement emailField = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input[type='email']")));
-        emailField.clear();
-        emailField.sendKeys(email);
-    }
-    public void providePassword(String password) {
-        WebElement passwordField = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input[type='password']")));
-        passwordField.clear();
-        passwordField.sendKeys(password);
-    }
-    public void clickLoginBtn() {
-        WebElement submit = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("button[type='submit']")));
-        submit.click();
     }
 }
