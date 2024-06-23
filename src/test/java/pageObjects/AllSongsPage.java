@@ -17,8 +17,8 @@ public class AllSongsPage extends BasePage {
     By contextClickFirstSong = By.cssSelector(".all-songs tr.song-item:nth-child(1)");
     By choosePlayOption = By.cssSelector("li.playback");
     By soundBarVisualizer = By.cssSelector("[data-testid='sound-bar-play']");
-    //Methods using locators
 
+    //Methods using locators
     public void chooseAllSongsList() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(chooseAllSongsList));
         findElement(chooseAllSongsList).click();

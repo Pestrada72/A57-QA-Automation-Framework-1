@@ -5,9 +5,9 @@
 
     <test name="Smoke Test" preserve-order="false">
         <classes>
-            <class name="LoginTests">
+            <class name="PlaylistTest">
                 <methods>
-                    <include name="loginValidEmailValidPasswordTest"/>
+                    <include name="PlaylistTest"/>
                 </methods>
             </class>
         </classes>
