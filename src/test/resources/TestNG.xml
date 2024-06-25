@@ -8,6 +8,7 @@
         <parameter name="browser" value="chrome"/>
         <classes>
             <class name="CucumberRunner"/>
+            <class name="PlaylistTest"/>
         </classes>
     </test>
 </suite>

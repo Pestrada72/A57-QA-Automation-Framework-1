@@ -14,7 +14,7 @@ public class PlaylistPage extends BasePage {
     //Locators
     By selectNewPlaylist = By.cssSelector("[data-testid='sidebar-create-playlist-btn']");
     By clickNewPlaylist = By.cssSelector("[data-testid='playlist-context-menu-create-simple']");
-    By enterNewPlaylistName = By.cssSelector("input.create");
+    By enterNewPlaylistName = By.cssSelector("input[name='name']");
     By newPlaylistDisplayed = By.cssSelector("section[id='playlists']");
 
     //Methods Using Locators
@@ -34,6 +34,5 @@ public class PlaylistPage extends BasePage {
 
     public boolean newPlaylistDisplayed() {
         return driver.findElement(newPlaylistDisplayed).isDisplayed();
-
     }
 }
