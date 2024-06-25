@@ -12,20 +12,20 @@ public class PlaylistPage extends BasePage {
     }
 
     //Locators
-    By selectNewPlaylist = By.cssSelector("[data-testid='sidebar-create-playlist-btn']");
-    By clickNewPlaylist = By.cssSelector("[data-testid='playlist-context-menu-create-simple']");
+    By clickNewPlaylist = By.cssSelector("li[data-testid='playlist-context-menu-create-simple']");
+    By selectNewPlaylist = By.cssSelector("nav.menu.playlist-menu");
     By enterNewPlaylistName = By.cssSelector("input[name='name']");
     By newPlaylistDisplayed = By.cssSelector("section[id='playlists']");
 
     //Methods Using Locators
-    public void selectNewPlaylist() {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(selectNewPlaylist));
-        findElement(selectNewPlaylist).click();
-    }
-
     public void clickNewPlaylist() {
         wait.until(ExpectedConditions.visibilityOfElementLocated(clickNewPlaylist));
         findElement(clickNewPlaylist).click();
+    }
+
+    public void selectNewPlaylist() {
+        wait.until(ExpectedConditions.elementToBeClickable(selectNewPlaylist));
+        findElement(selectNewPlaylist).click();
     }
 
     public void enterNewPlaylistName() {
