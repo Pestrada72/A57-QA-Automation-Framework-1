@@ -14,7 +14,7 @@ public class FavoritesPage extends BasePage {
     By selectFirstFavoriteSong = By.cssSelector("li:nth-child(1) button.text-secondary");
     By selectSecondFavoriteSong = By.cssSelector("li:nth-child(2) button.text-secondary");
     By navToFavoritePage = By.cssSelector("li.playlist.favorites");
-    By deleteFavoriteSong = By.xpath("//*[@id=\"favoritesWrapper\"]/div/div/div[1]/table/tr[1]/td[6]/button/i");
+    By deleteFavoriteSong = (By.xpath("//*[@id=\\\"favoritesWrapper\\\"]/div/div/div[1]/table/tr[1]/td[6]/button/i"));
 
 
     //Methods for Locator
